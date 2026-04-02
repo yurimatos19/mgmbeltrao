@@ -1,4 +1,4 @@
-import logoMgm from "@/assets/logo-mgm-transparent.png";
+import logoMgm from "@/assets/logo-mgm.png";
 
 const Footer = () => (
   <footer className="border-t border-border py-12 bg-background">
