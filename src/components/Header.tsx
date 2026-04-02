@@ -1,0 +1,87 @@
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const Header = () => {
+  const [open, setOpen] = useState(false);
+
+  const links = [
+    { label: "Quem Somos", href: "#quem-somos" },
+    { label: "Soluções", href: "#pilares" },
+    { label: "Serviços", href: "#servicos" },
+    { label: "Diferenciais", href: "#diferenciais" },
+    { label: "Contato", href: "#cta" },
+  ];
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+      <div className="container flex items-center justify-between h-20">
+        <a href="#" className="flex flex-col">
+          <span className="font-heading text-2xl font-bold tracking-tight text-heading">MGM</span>
+          <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-medium -mt-1">
+            Serviços Médicos e Consultoria
+          </span>
+        </a>
+
+        <nav className="hidden md:flex items-center gap-8">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
+            >
+              {l.label}
+            </a>
+          ))}
+          <a
+            href="#cta"
+            className="gradient-premium text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
+          >
+            Falar com especialista
+          </a>
+        </nav>
+
+        <button
+          className="md:hidden text-heading"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-background border-b border-border overflow-hidden"
+          >
+            <div className="container py-6 flex flex-col gap-4">
+              {links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
+                >
+                  {l.label}
+                </a>
+              ))}
+              <a
+                href="#cta"
+                onClick={() => setOpen(false)}
+                className="gradient-premium text-primary-foreground px-5 py-3 rounded-lg text-sm font-semibold text-center"
+              >
+                Falar com especialista
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+};
+
+export default Header;
