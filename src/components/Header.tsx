@@ -28,11 +28,8 @@ const Header = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-20">
-        <a href="#" className="flex flex-col">
-          <span className="font-heading text-2xl font-bold tracking-tight text-heading">MGM</span>
-          <span className="text-[9px] tracking-[0.18em] uppercase text-muted-foreground font-medium -mt-0.5">
-            Serviços Médicos e Consultoria
-          </span>
+        <a href="#" className="flex items-center gap-3">
+          <img src={logoMgm} alt="MGM" className="h-12 w-auto" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
