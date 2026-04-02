@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,47 +6,51 @@
 
 @layer base {
   :root {
-    --background: 40 20% 97%;
-    --foreground: 0 0% 8%;
+    /* Off white background */
+    --background: 60 5% 95%;
+    --foreground: 192 19% 14%;
 
-    --card: 40 15% 95%;
-    --card-foreground: 0 0% 8%;
+    --card: 60 5% 93%;
+    --card-foreground: 192 19% 14%;
 
-    --popover: 40 20% 97%;
-    --popover-foreground: 0 0% 8%;
+    --popover: 60 5% 95%;
+    --popover-foreground: 192 19% 14%;
 
-    --primary: 225 73% 45%;
-    --primary-foreground: 0 0% 100%;
+    /* Verde petróleo */
+    --primary: 175 35% 28%;
+    --primary-foreground: 60 5% 95%;
 
-    --secondary: 40 15% 93%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 156 23% 59%;
+    --secondary-foreground: 192 19% 14%;
 
-    --muted: 40 10% 92%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 60 4% 90%;
+    --muted-foreground: 192 10% 40%;
 
-    --accent: 265 50% 52%;
-    --accent-foreground: 0 0% 100%;
+    /* Dourado suave */
+    --accent: 42 44% 56%;
+    --accent-foreground: 192 19% 14%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 60 5% 95%;
 
-    --border: 40 10% 88%;
-    --input: 40 10% 88%;
-    --ring: 225 73% 45%;
+    --border: 60 4% 86%;
+    --input: 60 4% 86%;
+    --ring: 175 35% 28%;
 
-    --radius: 0.625rem;
+    --radius: 0.5rem;
 
     /* Custom tokens */
-    --heading: 0 0% 5%;
-    --subtle-purple: 265 40% 58%;
-    --royal-blue: 225 73% 45%;
-    --off-white: 40 20% 97%;
-    --deep-black: 0 0% 5%;
+    --heading: 192 19% 14%;
+    --verde-petroleo: 175 35% 28%;
+    --dourado: 42 44% 56%;
+    --verde-suave: 156 23% 59%;
+    --off-white: 60 5% 95%;
+    --grafite: 192 19% 14%;
 
-    --gradient-premium: linear-gradient(135deg, hsl(225, 73%, 45%), hsl(265, 50%, 52%));
-    --gradient-subtle: linear-gradient(135deg, hsl(225, 73%, 45%) 0%, hsl(265, 40%, 58%) 100%);
-    --shadow-card: 0 4px 24px -4px hsl(225 73% 45% / 0.08);
-    --shadow-elevated: 0 12px 40px -8px hsl(225 73% 45% / 0.12);
+    --gradient-institutional: linear-gradient(135deg, hsl(175, 35%, 28%), hsl(156, 23%, 59%), hsl(42, 44%, 56%));
+    --gradient-dark: linear-gradient(135deg, hsl(192, 19%, 14%), hsl(175, 35%, 28%));
+    --shadow-card: 0 4px 24px -4px hsl(175 35% 28% / 0.06);
+    --shadow-elevated: 0 12px 40px -8px hsl(175 35% 28% / 0.1);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -74,22 +78,46 @@
 }
 
 @layer utilities {
-  .gradient-premium {
-    background: var(--gradient-premium);
+  .gradient-institutional {
+    background: var(--gradient-institutional);
   }
-  .gradient-subtle {
-    background: var(--gradient-subtle);
+  .gradient-dark {
+    background: var(--gradient-dark);
   }
-  .text-gradient-premium {
-    background: var(--gradient-premium);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .bg-verde-petroleo {
+    background-color: hsl(var(--verde-petroleo));
+  }
+  .text-verde-petroleo {
+    color: hsl(var(--verde-petroleo));
+  }
+  .bg-dourado {
+    background-color: hsl(var(--dourado));
+  }
+  .text-dourado {
+    color: hsl(var(--dourado));
+  }
+  .bg-verde-suave {
+    background-color: hsl(var(--verde-suave));
+  }
+  .text-verde-suave {
+    color: hsl(var(--verde-suave));
+  }
+  .bg-grafite {
+    background-color: hsl(var(--grafite));
+  }
+  .text-grafite {
+    color: hsl(var(--grafite));
   }
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
   .shadow-elevated {
     box-shadow: var(--shadow-elevated);
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(42, 44%, 56%), hsl(42, 55%, 65%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
