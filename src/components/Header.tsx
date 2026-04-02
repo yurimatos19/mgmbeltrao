@@ -27,9 +27,9 @@ const Header = () => {
         scrolled ? "bg-background/90 backdrop-blur-lg shadow-card" : "bg-transparent"
       }`}
     >
-      <div className="container flex items-center justify-between h-20">
+      <div className="container flex items-center justify-between h-24">
         <a href="#" className="flex items-center gap-3">
-          <img src={logoMgm} alt="MGM" className="h-12 w-auto" />
+          <img src={logoMgm} alt="MGM" className="h-16 w-auto" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
