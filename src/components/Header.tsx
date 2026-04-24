@@ -41,11 +41,7 @@ const Header = () => {
   const logo = logoMgm;
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-primary shadow-lg" : "bg-primary"
-      }`}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary ${scrolled ? "shadow-lg" : ""}`}>
       <div className="container flex items-center justify-between h-24">
         <a href="#" className="flex items-center gap-3">
           <img
