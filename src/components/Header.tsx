@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoMgm from "@/assets/logo-mgm.png";
-import logoMgmTransparent from "@/assets/logo-mgm-transparent.png";
 import { WHATSAPP_URL, WHATSAPP_MSG_CTA } from "@/lib/constants";
 
 const Header = () => {
@@ -39,7 +38,7 @@ const Header = () => {
     { label: "Contato", href: "#cta", id: "cta" },
   ];
 
-  const logo = logoMgmTransparent;
+  const logo = logoMgm;
 
   return (
     <header
