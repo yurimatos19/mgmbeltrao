@@ -8,7 +8,6 @@ import DiferenciaisSection from "@/components/DiferenciaisSection";
 import DepoimentosSection from "@/components/DepoimentosSection";
 import ResultadosSection from "@/components/ResultadosSection";
 import QuemSomosSection from "@/components/QuemSomosSection";
-import VideoSection from "@/components/VideoSection";
 import FaqSection from "@/components/FaqSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -28,10 +27,9 @@ const Index = () => (
       <ParaQuemSection />
       <ComoTrabalhamosSection />
       <DiferenciaisSection />
+      <QuemSomosSection />
       <DepoimentosSection />
       <ResultadosSection />
-      <QuemSomosSection />
-      <VideoSection />
       <FaqSection />
       <CTASection />
     </main>
