@@ -30,15 +30,23 @@ const QuemSomosSection = () => {
   };
 
   return (
-    <section id="sobre" className="scroll-mt-24 py-24 md:py-32 relative overflow-hidden">
+    <section id="sobre" className="scroll-mt-24 py-20 md:py-32 relative overflow-hidden">
       <div className="absolute left-0 top-1/4 w-80 h-80 rounded-full bg-accent/5 blur-[80px] pointer-events-none" />
       <div className="absolute right-0 bottom-0 w-64 h-64 rounded-full bg-primary/4 blur-[60px] pointer-events-none" />
 
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-12 lg:gap-16 items-start">
 
-          {/* VÍDEO VERTICAL (Esquerda) */}
+          {/* ── VÍDEO VERTICAL (esquerda no desktop, topo no mobile) ── */}
           <AnimatedSection>
+            {/* Label só no mobile — aparece antes do vídeo */}
+            <div className="flex items-center gap-3 mb-5 lg:hidden">
+              <div className="w-8 h-px bg-accent" />
+              <span className="text-xs font-semibold tracking-[0.3em] uppercase text-accent font-body">
+                Sobre a MGM
+              </span>
+            </div>
+
             <div className="relative max-w-sm mx-auto lg:mx-0">
               <div
                 className="relative rounded-2xl overflow-hidden shadow-elevated cursor-pointer group"
@@ -54,6 +62,7 @@ const QuemSomosSection = () => {
                   onPlay={() => setPlaying(true)}
                   onPause={() => setPlaying(false)}
                 />
+
                 {!playing && (
                   <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/50 backdrop-blur-[2px] transition-colors duration-300 flex flex-col items-center justify-center">
                     <motion.div
@@ -72,52 +81,57 @@ const QuemSomosSection = () => {
                   </div>
                 )}
               </div>
+
+              {/* Decorative frame — só desktop */}
               <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border-2 border-primary/15 -z-10 hidden lg:block" />
-
-              {/* Credential badges */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="absolute -bottom-5 -right-5 md:-right-10 bg-background rounded-xl shadow-elevated p-4 border border-border/50 hidden md:flex items-center gap-3"
-              >
-                <div className="w-9 h-9 rounded-lg bg-accent/15 flex items-center justify-center shrink-0">
-                  <GraduationCap size={16} className="text-accent" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-heading">MBA Gestão da Saúde</p>
-                  <p className="text-[10px] text-muted-foreground">+ Product Growth · PM3</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.55, duration: 0.5 }}
-                className="absolute -top-4 -right-4 md:-right-8 bg-primary text-primary-foreground rounded-lg px-4 py-2 shadow-elevated hidden md:block"
-              >
-                <p className="text-xs font-bold uppercase tracking-wide">7 anos</p>
-                <p className="text-[11px] opacity-70">Saúde B2B · Digital</p>
-              </motion.div>
             </div>
           </AnimatedSection>
 
-          {/* TEXTO + IMAGEM (Direita) */}
+          {/* ── TEXTO + FOTO (direita no desktop, abaixo no mobile) ── */}
           <AnimatedSection delay={0.15}>
-            <div className="flex items-center gap-3 mb-6">
+            {/* Label só no desktop */}
+            <div className="hidden lg:flex items-center gap-3 mb-6">
               <div className="w-8 h-px bg-accent" />
               <span className="text-xs font-semibold tracking-[0.3em] uppercase text-accent font-body">
                 Sobre a MGM
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight mb-6">
+
+            <h2 className="text-3xl md:text-4xl lg:text-[2.6rem] font-bold leading-tight mb-2">
               Gestão médica{" "}
               <span className="text-primary italic">séria, comprometida e especializada</span>
             </h2>
 
-            <div className="space-y-4 mb-8">
+            {/* ── Foto + nome inline ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25, duration: 0.5 }}
+              className="flex items-center gap-4 mt-6 mb-6 p-4 rounded-xl bg-card border border-border/50 shadow-card"
+            >
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden ring-2 ring-accent/30 ring-offset-2 ring-offset-background shrink-0">
+                <img
+                  src={gabiImg}
+                  alt="Maria Gabriela Beltrão — Fundadora MGM"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div>
+                <p className="font-heading font-bold text-heading text-base md:text-lg">
+                  Maria Gabriela Beltrão
+                </p>
+                <p className="text-muted-foreground text-sm">Fundadora · MGM Beltrão</p>
+                <div className="flex items-center gap-2 mt-1.5">
+                  <div className="w-6 h-6 rounded-md bg-accent/15 flex items-center justify-center">
+                    <GraduationCap size={12} className="text-accent" />
+                  </div>
+                  <span className="text-xs text-muted-foreground">MBA Gestão da Saúde · Product Growth PM3</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="space-y-4 mb-7">
               <p className="text-muted-foreground leading-relaxed text-base font-light">
                 A MGM Beltrão nasceu da trajetória de Gabriela Beltrão — especialista com 7 anos
                 em saúde digital, inovação e gestão de operações médicas em algumas das maiores
@@ -130,29 +144,30 @@ const QuemSomosSection = () => {
               </p>
             </div>
 
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-2.5 mb-7">
               {credenciais.map((c, i) => (
                 <motion.li
                   key={c}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.08, duration: 0.5 }}
+                  transition={{ delay: 0.3 + i * 0.07, duration: 0.5 }}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2 size={17} className="text-primary mt-0.5 shrink-0" strokeWidth={2} />
+                  <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" strokeWidth={2} />
                   <span className="text-sm text-muted-foreground">{c}</span>
                 </motion.li>
               ))}
             </ul>
 
-            {/* Background companies */}
-            <div className="pt-6 border-t border-border mb-8">
-              <div className="flex items-center gap-2 mb-4">
+            <div className="pt-5 border-t border-border">
+              <div className="flex items-center gap-2 mb-3">
                 <Briefcase size={13} className="text-muted-foreground" />
-                <span className="text-xs text-muted-foreground uppercase tracking-widest font-medium">Trajetória profissional em</span>
+                <span className="text-xs text-muted-foreground uppercase tracking-widest font-medium">
+                  Trajetória profissional em
+                </span>
               </div>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2.5">
                 {background.map((b, i) => (
                   <motion.div
                     key={b.name}
@@ -160,42 +175,17 @@ const QuemSomosSection = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 + i * 0.07, duration: 0.4 }}
-                    className="flex items-center gap-3"
+                    className="flex flex-wrap items-center gap-x-2 gap-y-0.5"
                   >
                     <span className="text-sm font-semibold text-heading">{b.name}</span>
-                    <span className="text-muted-foreground/40">·</span>
+                    <span className="text-muted-foreground/40 hidden sm:inline">·</span>
                     <span className="text-xs text-muted-foreground">{b.desc}</span>
                   </motion.div>
                 ))}
               </div>
             </div>
-
-            {/* FOTO CARD (substituindo onde ficava o video) */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
-              <div className="relative rounded-xl overflow-hidden shadow-card" style={{ aspectRatio: "16/9" }}>
-                <img
-                  src={gabiImg}
-                  alt="Maria Gabriela Beltrão — Fundadora MGM"
-                  className="w-full h-full object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 flex items-center justify-between">
-                  <div>
-                    <p className="text-primary-foreground font-heading font-bold text-lg md:text-xl">
-                      Maria Gabriela Beltrão
-                    </p>
-                    <p className="text-primary-foreground/70 text-sm mt-0.5">Fundadora · MGM Beltrão</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
           </AnimatedSection>
+
         </div>
       </div>
     </section>
